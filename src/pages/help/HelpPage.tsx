@@ -30,7 +30,7 @@ export const HelpPage: React.FC = () => {
         <h1 className="text-2xl font-bold text-gray-900">Help & Support</h1>
         <p className="text-gray-600">Find answers to common questions or get in touch with our support team</p>
       </div>
-      
+
       {/* Search */}
       <div className="max-w-2xl">
         <Input
@@ -39,7 +39,7 @@ export const HelpPage: React.FC = () => {
           fullWidth
         />
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Quick links */}
         <Card>
@@ -60,7 +60,7 @@ export const HelpPage: React.FC = () => {
             </Button>
           </CardBody>
         </Card>
-        
+
         <Card>
           <CardBody className="text-center p-6">
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-50 rounded-lg mb-4">
@@ -75,7 +75,7 @@ export const HelpPage: React.FC = () => {
             </Button>
           </CardBody>
         </Card>
-        
+
         <Card>
           <CardBody className="text-center p-6">
             <div className="inline-flex items-center justify-center w-12 h-12 bg-primary-50 rounded-lg mb-4">
@@ -95,7 +95,7 @@ export const HelpPage: React.FC = () => {
           </CardBody>
         </Card>
       </div>
-      
+
       {/* FAQs */}
       <Card>
         <CardHeader>
@@ -116,7 +116,7 @@ export const HelpPage: React.FC = () => {
           </div>
         </CardBody>
       </Card>
-      
+
       {/* Contact form */}
       <Card>
         <CardHeader>
@@ -125,29 +125,39 @@ export const HelpPage: React.FC = () => {
         <CardBody>
           <form className="space-y-6 max-w-2xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input
-                label="Name"
-                placeholder="Your name"
-              />
-              
-              <Input
-                label="Email"
-                type="email"
-                placeholder="your@email.com"
-              />
+              <div>
+                <label htmlFor="Name">
+                  Name
+                </label><br />
+                <input
+                  type="text"
+                  placeholder="Jonh Doe"
+                  className='p-3 max-h-7'
+                />
+              </div>
+              <div>
+                <label htmlFor="Email">
+                  Email
+                </label><br />
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className='p-3 max-h-7'
+                />
+              </div>
             </div>
-            
+
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Message
               </label>
               <textarea
-                className="w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
+                className="w-full p-3 rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
                 rows={4}
                 placeholder="How can we help you?"
               ></textarea>
             </div>
-            
+
             <div>
               <Button>
                 Send Message

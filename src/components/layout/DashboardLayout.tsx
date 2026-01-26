@@ -5,8 +5,8 @@ import { Navbar } from './Navbar';
 import { Sidebar } from './Sidebar';
 
 export const DashboardLayout: React.FC = () => {
-  const { user, isAuthenticated, isLoading } = useAuth();
-  
+  const { isAuthenticated, isLoading } = useAuth();
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -14,19 +14,21 @@ export const DashboardLayout: React.FC = () => {
       </div>
     );
   }
-  
+
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
-  
+
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="h-screen bg-gray-50 flex flex-col">
       <Navbar />
-      
-      <div className="flex-1 flex overflow-hidden">
-        <Sidebar />
-        
-        <main className="flex-1 overflow-y-auto p-6">
+
+      <div className="flex-1 flex">
+        <div className='h-[89vh]'>
+          <Sidebar />
+        </div>
+
+        <main className="flex-1 p-4  overflow-y-scroll h-[90vh]">
           <div className="max-w-7xl mx-auto">
             <Outlet />
           </div>

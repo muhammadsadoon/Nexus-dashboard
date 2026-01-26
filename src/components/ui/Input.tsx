@@ -20,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   ...props
 }, ref) => {
   
-  const widthClass = fullWidth ? 'w-full' : '';
+  const widthClass = fullWidth ? 'w-full p-3' : '';
   const errorClass = error ? 'border-error-500 focus:border-error-500 focus:ring-error-500' : 'border-gray-300 focus:border-primary-500 focus:ring-primary-500';
   
   const inputBaseClass = `block rounded-md shadow-sm focus:ring-2 focus:ring-opacity-50 sm:text-sm ${errorClass}`;
@@ -29,7 +29,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   return (
     <div className={`${widthClass} ${className}`}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block p-5 text-sm font-medium text-gray-700 mb-1">
           {label}
         </label>
       )}

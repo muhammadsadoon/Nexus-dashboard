@@ -9,7 +9,7 @@ import { DashboardLayout } from './components/layout/DashboardLayout';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RegisterPage } from './pages/auth/RegisterPage';
 
-// Dashboard Pages
+// Dashboard Pagesnotfound
 import { EntrepreneurDashboard } from './pages/dashboard/EntrepreneurDashboard';
 import { InvestorDashboard } from './pages/dashboard/InvestorDashboard';
 
@@ -29,6 +29,9 @@ import { DealsPage } from './pages/deals/DealsPage';
 
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
+
+// not found page imported
+import NotFoundPage from './pages/notfound/notfoundpage';
 
 function App() {
   const { user } = useAuth();
@@ -91,13 +94,13 @@ function App() {
         </Route>
 
         {/* Redirect root to login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/404" element={<NotFoundPage />} />
 
         {/* Catch all other routes and redirect to login */}
         {
           user ?
-            (<Route path="/*" element={<DashboardLayout />}>
-              <Route index element={<Navigate to={"/notFound"} replace />} />
+            (<Route path="*" element={<DashboardLayout />}>
+              <Route index element={<NotFoundPage />} />
             </Route>)
             :
             <Route index element={<Navigate to={"/notFound"} replace />} />
