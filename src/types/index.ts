@@ -81,7 +81,37 @@ export interface AuthContextType {
 }
 
 export interface Event {
-  title: String, // a property!
-  start: String, // a property!
-  end: String
+  title: string, // a property!
+  start: string, // a property!
+  end: string
 }
+
+export interface AvailabilitySlot {
+  id: string;
+  userId: string;
+  start: string;
+  end: string;
+  title: string;
+  available: boolean;
+}
+
+export interface MeetingRequest {
+  id: string;
+  senderId: string;
+  receiverId: string;
+  slotId: string;
+  message: string;
+  status: 'pending' | 'accepted' | 'declined';
+  createdAt: string;
+}
+
+export interface ConfirmedMeeting {
+  id: string;
+  participants: string[];
+  slotId: string;
+  title: string;
+  start: string;
+  end: string;
+  confirmedAt: string;
+}
+

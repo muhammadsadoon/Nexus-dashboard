@@ -30,6 +30,15 @@ import { DealsPage } from './pages/deals/DealsPage';
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
 
+// Meeting Pages
+import MeetingRequestsPage from './pages/meetings/MeetingRequestsPage';
+
+// Video Call Pages
+import VideoCallPage from './pages/video/VideoCallPage';
+
+// Document Chamber Pages
+import DocumentChamberPage from './pages/documents/DocumentChamberPage';
+
 // not found page imported
 import NotFoundPage from './pages/notfound/notfoundpage';
 import CalenderSlots from './pages/slot/calenderslots';
@@ -97,6 +106,21 @@ function App() {
         {/* Calender Route */}
         <Route path="/slot" element={<DashboardLayout />}>
           <Route index element={<CalenderSlots />} />
+        </Route>
+
+        {/* Meeting Requests Route */}
+        <Route path="/meeting-requests" element={<DashboardLayout />}>
+          <Route index element={<MeetingRequestsPage />} />
+        </Route>
+
+        {/* Video Call Route */}
+        <Route path="/video-call" element={<DashboardLayout />}>
+          <Route index element={<VideoCallPage />} />
+        </Route>
+
+        {/* Document Chamber Route */}
+        <Route path="/document-chamber" element={<DashboardLayout />}>
+          <Route index element={<DocumentChamberPage />} />
         </Route>
         
         {/* Redirect root to login */}

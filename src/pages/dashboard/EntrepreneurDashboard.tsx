@@ -7,9 +7,10 @@ import { Badge } from '../../components/ui/Badge';
 import { CollaborationRequestCard } from '../../components/collaboration/CollaborationRequestCard';
 import { InvestorCard } from '../../components/investor/InvestorCard';
 import { useAuth } from '../../context/AuthContext';
-import { CollaborationRequest } from '../../types';
+import { CollaborationRequest, ConfirmedMeeting } from '../../types';
 import { getRequestsForEntrepreneur } from '../../data/collaborationRequests';
 import { investors } from '../../data/users';
+import { confirmedMeetings } from '../../data/confirmedMeetings';
 
 export const EntrepreneurDashboard: React.FC = () => {
   const { user } = useAuth();
@@ -113,7 +114,27 @@ export const EntrepreneurDashboard: React.FC = () => {
           </CardBody>
         </Card>
       </div>
-      
+
+      {/* Confirmed Meetings */}
+      <Card>
+        <CardHeader>
+          <h2 className="text-lg font-medium text-gray-900">Confirmed Meetings</h2>
+        </CardHeader>
+        <CardBody>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {confirmedMeetings.filter((meeting: ConfirmedMeeting) =>
+              meeting.participants.includes(user.id)
+            ).map((meeting: ConfirmedMeeting) => (
+              <div key={meeting.id} className="p-4 border rounded-lg">
+                <h3 className="font-semibold">{meeting.title}</h3>
+                <p className="text-sm text-gray-600">Start: {new Date(meeting.start).toLocaleString()}</p>
+                <p className="text-sm text-gray-600">End: {new Date(meeting.end).toLocaleString()}</p>
+              </div>
+            ))}
+          </div>
+        </CardBody>
+      </Card>
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Collaboration requests */}
         <div className="lg:col-span-2 space-y-4">
