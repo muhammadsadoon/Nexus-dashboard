@@ -79,3 +79,9 @@ export interface AuthContextType {
   isAuthenticated: boolean;
   isLoading: boolean;
 }
+
+export interface Event {
+  title: String, // a property!
+  start: String, // a property!
+  end: String
+}

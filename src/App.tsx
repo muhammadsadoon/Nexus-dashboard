@@ -32,6 +32,7 @@ import { ChatPage } from './pages/chat/ChatPage';
 
 // not found page imported
 import NotFoundPage from './pages/notfound/notfoundpage';
+import CalenderSlots from './pages/slot/calenderslots';
 
 function App() {
   const { user } = useAuth();
@@ -93,18 +94,15 @@ function App() {
           <Route path=":userId" element={<ChatPage />} />
         </Route>
 
+        {/* Calender Route */}
+        <Route path="/slot" element={<DashboardLayout />}>
+          <Route index element={<CalenderSlots />} />
+        </Route>
+        
         {/* Redirect root to login */}
         <Route path="/404" element={<NotFoundPage />} />
 
-        {/* Catch all other routes and redirect to login */}
-        {
-          user ?
-            (<Route path="*" element={<DashboardLayout />}>
-              <Route index element={<NotFoundPage />} />
-            </Route>)
-            :
-            <Route index element={<Navigate to={"/notFound"} replace />} />
-        }
+        <Route path='*' element={<Navigate to="/404" />} />
 
       </Routes>
       <>
