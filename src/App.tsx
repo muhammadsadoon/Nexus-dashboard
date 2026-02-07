@@ -122,11 +122,10 @@ function App() {
         <Route path="/document-chamber" element={<DashboardLayout />}>
           <Route index element={<DocumentChamberPage />} />
         </Route>
-        
-        {/* Redirect root to login */}
-        <Route path="/404" element={<NotFoundPage />} />
 
-        <Route path='*' element={<Navigate to="/404" />} />
+        {/* Redirect root to login */}
+
+        <Route path='*' element={<LoginPage />} />
 
       </Routes>
       <>
