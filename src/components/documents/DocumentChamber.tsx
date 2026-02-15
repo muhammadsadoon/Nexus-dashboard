@@ -132,7 +132,7 @@ export const DocumentChamber: React.FC = () => {
               id="file-upload"
             />
             <label htmlFor="file-upload">
-              <Button as="span" className="bg-primary-600 text-white hover:bg-primary-700">
+              <Button className="bg-primary-600 text-white hover:bg-primary-700">
                 Choose File
               </Button>
             </label>
